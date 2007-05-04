@@ -1,6 +1,6 @@
-# kernel-source-2.6.17.9mdv
+# kernel-source-2.6.17.13mdv
 %define kver 2.6.17
-%define krelease 9mdv
+%define krelease 13mdv
 %define kversion %{kver}-%{krelease}
 %define kname %{kver}.%{krelease}
 %define kernel_tree $RPM_BUILD_DIR/mol-%{source_version}%{source_pre}/linux-%{kversion}
@@ -21,7 +21,7 @@
 Summary:	Native MacOS emulator
 Name:		mol
 Version:	%{package_version}
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		Emulators
 Source:		http://www.maconlinux.com/downloads/%{name}-%{source_version}%{source_pre}.tar.bz2
