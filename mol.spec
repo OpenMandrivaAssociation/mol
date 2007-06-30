@@ -1,6 +1,6 @@
-# kernel-source-2.6.17.13mdv
-%define kver 2.6.17
-%define krelease 13mdv
+# kernel-source-2.6.21.2mdv
+%define kver 2.6.21
+%define krelease 2mdv
 %define kversion %{kver}-%{krelease}
 %define kname %{kver}.%{krelease}
 %define kernel_tree $RPM_BUILD_DIR/mol-%{source_version}%{source_pre}/linux-%{kversion}
@@ -14,9 +14,9 @@
 %{?_with_mol: %global build_mol 1}
 %{?_with_kmods: %global build_kmods 1}
 
-%define source_version 0.9.72
+%define source_version 0.9.72.1
 %define source_pre %{nil}
-%define package_version 0.9.72
+%define package_version 0.9.72.1
 
 Summary:	Native MacOS emulator
 Name:		mol
@@ -31,7 +31,7 @@ Source3: 	mol_48.png
 Patch2:		mol-0.9.71-kmod-unresolved-symbols.patch
 URL:		http://www.maconlinux.com/
 BuildRoot:	%_tmppath/%{name}-%{version}-root
-BuildRequires:	XFree86-devel png-devel
+BuildRequires:	X11-devel png-devel
 Requires: 	mol-kernel-modules
 ExclusiveArch:	ppc
 
@@ -129,20 +129,6 @@ rm -fr %buildroot
 # (sb) move the docs and let rpm install them
 rm -fr moldoc
 mv -f $RPM_BUILD_ROOT/usr/share/doc/mol-%{source_version} moldoc
-
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}):command="%{_bindir}/startmol" \
-needs="x11" section="Applications/Emulators" title="MOL" \
-longtitle="MOL - Mac On Linux" icon="%{name}.png" xdg="true"
-EOF
-
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}OSX
-?package(%{name}):command="%{_bindir}/startmol -X" \
-needs="x11" section="Applications/Emulators" title="MOL - OSX" \
-longtitle="MOL - Mac On Linux" icon="%{name}.png" xdg="true"
-EOF
 
 mkdir -p %{buildroot}%{_datadir}/applications
 cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
@@ -256,8 +242,6 @@ rm -fr %buildroot
 
 %_mol_localstatedir/nvram.x
 
-%{_menudir}/mol
-%{_menudir}/molOSX
 %{_datadir}/applications/mandriva-mol.desktop
 %{_iconsdir}/*.png
 %{_miconsdir}/*.png
