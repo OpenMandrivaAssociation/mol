@@ -139,7 +139,7 @@ Exec=%{_bindir}/startmol
 Icon=%{name}
 Terminal=false
 Type=Application
-Categories=System;Emulator;X-MandrivaLinux-MoreApplications-Emulators
+Categories=System;Emulator;X-MandrivaLinux-MoreApplications-Emulators;
 
 [Desktop Entry]
 Name=MOL OSX
@@ -148,7 +148,7 @@ Exec=%{_bindir}/startmol --osx
 Icon=%{name}    
 Terminal=false
 Type=Application
-Categories=System;Emulator;X-MandrivaLinux-MoreApplications-Emulators
+Categories=System;Emulator;X-MandrivaLinux-MoreApplications-Emulators;
 EOF
 
 mkdir -p  $RPM_BUILD_ROOT%{_miconsdir} $RPM_BUILD_ROOT%{_liconsdir}
