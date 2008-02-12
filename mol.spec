@@ -36,7 +36,6 @@ Requires: 	mol-kernel-modules
 ExclusiveArch:	ppc
 
 %description
-
 With MOL you can run MacOS under Linux - in full speed!
 All PowerPC versions of MacOS are supported, including OS/X.
 
@@ -50,7 +49,6 @@ BuildConflicts:	kernel-source-stripped-%{kname}
 Requires:	kernel-%{kname}
 
 %description kmods
-
 This package contains the Mac-on-Linux kernel module
 needed by MOL. It also contains the networking kernel
 modules. Built for: kernel-%{kname}.
