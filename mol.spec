@@ -21,7 +21,7 @@
 Summary:	Native MacOS emulator
 Name:		mol
 Version:	%{package_version}
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPL
 Group:		Emulators
 Source:		http://www.maconlinux.com/downloads/%{name}-%{source_version}%{source_pre}.tar.bz2
