@@ -164,7 +164,7 @@ make install-modules DESTDIR=$RPM_BUILD_ROOT prefix=%{_prefix}
 %if !%build_mol
 rm -fr $RPM_BUILD_ROOT/%{_bindir}
 rm -fr $RPM_BUILD_ROOT/%{_datadir}
-rm -fr $RPM_BUILD_ROOT/%{_localstatedir}
+rm -fr $RPM_BUILD_ROOT/%{_localstatedir}/lib
 rm -fr $RPM_BUILD_ROOT/%{_sysconfdir}
 rm -fr $RPM_BUILD_ROOT/%{_menudir}
 rm -fr $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{source_version}/bin
@@ -190,7 +190,7 @@ rm -fr %buildroot
 
 %define _mol_libdir             %{_libdir}/mol/%{source_version}
 %define _mol_datadir            %{_datadir}/mol/%{source_version}
-%define _mol_localstatedir      %{_localstatedir}/mol
+%define _mol_localstatedir      %{_localstatedir}/lib/mol
 
 %if %build_mol
 %files
