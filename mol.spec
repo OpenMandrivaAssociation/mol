@@ -174,11 +174,15 @@ rm -fr $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{source_version}/%{name}*
 rm -fr $RPM_BUILD_ROOT/%{_libdir}/%{name}/%{source_version}/modules/*
 %endif
 
+%if %mdkversion < 200900
 %post
 %update_menus
+%endif
 
+%if %mdkversion < 200900
 %postun
 %clean_menus
+%endif
 
 %post kmods
 if [ ! -e /dev/sheep_net ]; then
