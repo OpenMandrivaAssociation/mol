@@ -3,7 +3,7 @@
 %define krelease 2mdv
 %define kversion %{kver}-%{krelease}
 %define kname %{kver}.%{krelease}
-%define kernel_tree $RPM_BUILD_DIR/mol-%{source_version}%{source_pre}/linux-%{kversion}
+%define kernel_tree %{_builddir}/mol-%{source_version}%{source_pre}/linux-%{kversion}
 # default is to build mol and build kmods
 # use --without mol to disable mol build
 # use --without kmods to disable kmods build
@@ -99,13 +99,13 @@ then
 	rm -f %{kernel_tree}/arch/ppc/defconfig-maximum
 	rm -f %{kernel_tree}/arch/ppc/defconfig-BOOT
 	rm -f %{kernel_tree}/arch/ppc/defconfig-power4BOOT
-	rm -rf $RPM_BUILD_DIR/ktrees
-	mkdir $RPM_BUILD_DIR/ktrees
+	rm -rf %{_builddir}/ktrees
+	mkdir %{_builddir}/ktrees
 	for i in  %{kernel_tree}/arch/ppc/defconfig* ; do
 		base=`basename $i`
 		ver=`echo $base |awk -F- '{print $2 }'`;
-		cp -al %{kernel_tree} $RPM_BUILD_DIR/ktrees/$base
-		pushd $RPM_BUILD_DIR/ktrees/$base
+		cp -al %{kernel_tree} %{_builddir}/ktrees/$base
+		pushd %{_builddir}/ktrees/$base
         perl -p -i -e "s/^EXTRAVERSION[^.]*(\.[0-9]+)?-.*\$/EXTRAVERSION = \$1-%{krelease}$ver/" Makefile 
 		make mrproper > /dev/null
 		cp $i .config
@@ -114,9 +114,9 @@ then
 		make include/asm
 		make scripts
 		popd
-		make modules NETMODS=y KERNEL_TREES=$RPM_BUILD_DIR/ktrees/$base
+		make modules NETMODS=y KERNEL_TREES=%{_builddir}/ktrees/$base
 	done
-	rm -rf $RPM_BUILD_DIR/ktrees %{kernel_tree}
+	rm -rf %{_builddir}/ktrees %{kernel_tree}
 fi
 %endif 
 
