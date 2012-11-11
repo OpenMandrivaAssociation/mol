@@ -1,0 +1,10 @@
+--- mol-0.9.71/src/kmod/Linux/alloc.h.bak	2004-07-24 18:44:02.000000000 +0200
++++ mol-0.9.71/src/kmod/Linux/alloc.h	2005-02-06 22:02:57.828748975 +0100
+@@ -21,6 +21,7 @@
+ #include <linux/vmalloc.h>
+ #include <linux/mm.h>
+ #include <asm/uaccess.h>
++#include <asm/io.h>
+ 
+ #ifdef LINUX_26
+ #include <asm/cacheflush.h>
