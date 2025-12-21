@@ -31,6 +31,11 @@ Source3: 	mol_48.png
 Patch2:		mol-0.9.71-kmod-unresolved-symbols.patch
 URL:		https://www.maconlinux.com/
 BuildRoot:	%_tmppath/%{name}-%{version}-root
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	X11-devel png-devel
 Requires: 	mol-kernel-modules
 ExclusiveArch:	ppc
